@@ -12,9 +12,32 @@ config_version=5
 
 config/name="Paddle Wars"
 config/description="Paddle wars is an open source game for learn godot engine with C#. This game will have an updates and new mechs incorporated to an arcade game such as roguelike."
+config/version="0.1.0"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/stdout/print_fps=true
+settings/stdout/print_gpu_profile=true
+
+[display]
+
+window/vsync/vsync_mode=0
 
 [dotnet]
 
 project/assembly_name="PaddleWars"
+
+[editor]
+
+naming/scene_name_casing=1
+
+[physics]
+
+2d/physics_engine="Rapier2D"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+driver/threads/thread_model=2
