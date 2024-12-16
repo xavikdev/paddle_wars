@@ -14,7 +14,7 @@ config/name="Paddle Wars"
 config/description="Paddle wars is an open source game for learn godot engine with C#. This game will have an updates and new mechs incorporated to an arcade game such as roguelike."
 config/version="0.1.0"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/images/logo.png"
 
 [debug]
 
