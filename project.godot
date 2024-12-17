@@ -13,10 +13,11 @@ config_version=5
 config/name="Paddle Wars"
 config/description="Paddle wars is an open source game for learn godot engine with C#. This game will have an updates and new mechs incorporated to an arcade game such as roguelike."
 config/version="0.1.0"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="res://gui/main_menu.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 boot_splash/image="res://assets/images/gameStudio.png"
 config/icon="res://assets/images/logo_icon.png"
-boot_splash/minimum_display_time=120
+boot_splash/minimum_display_time=1200
 
 [debug]
 
@@ -33,10 +34,6 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="PaddleWars"
-
-[editor]
-
-naming/scene_name_casing=1
 
 [physics]
 
