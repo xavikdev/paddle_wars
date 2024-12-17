@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq7leh028bktw"]
+
+[ext_resource type="Texture2D" uid="uid://boch2y5xxu1xq" path="res://assets/sprites/playerPaddle.webp" id="1_5j8eq"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_p5aji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqhvl"]
+size = Vector2(40, 360)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_p5aji")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5j8eq")
+region_enabled = true
+region_rect = Rect2(79.5132, 359.381, 40.8958, 361.047)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sqhvl")

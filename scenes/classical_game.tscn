@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://di7s0f008tdok"]
+
+[ext_resource type="PackedScene" uid="uid://dq7leh028bktw" path="res://characters/player.tscn" id="1_3jcki"]
+[ext_resource type="Texture2D" uid="uid://0qrmmrgqvci5" path="res://assets/sprites/pongBackground.webp" id="1_6681q"]
+[ext_resource type="PackedScene" uid="uid://6xv1ex3btx2n" path="res://characters/ball.tscn" id="1_fdlcr"]
+[ext_resource type="PackedScene" uid="uid://co6qp2ujpwr8s" path="res://characters/enemy.tscn" id="2_1f178"]
+[ext_resource type="Texture2D" uid="uid://dl0iyxb74vdhs" path="res://assets/sprites/pongBattlefield.webp" id="4_omk2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vg1h"]
+size = Vector2(1959, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc4ga"]
+size = Vector2(1945, 42)
+
+[node name="ClassicalGame" type="Node2D"]
+
+[node name="Ball" parent="." instance=ExtResource("1_fdlcr")]
+position = Vector2(960, 540)
+
+[node name="Enemy" parent="." instance=ExtResource("2_1f178")]
+position = Vector2(1818, 540)
+
+[node name="Player" parent="." instance=ExtResource("1_3jcki")]
+z_index = 1
+position = Vector2(101, 540)
+Speed = 800.0
+MinY = 215.0
+MaxY = 865.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(960, 540)
+texture = ExtResource("4_omk2p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(959.5, 10.5)
+shape = SubResource("RectangleShape2D_8vg1h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(962.5, 1069)
+shape = SubResource("RectangleShape2D_pc4ga")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6681q")

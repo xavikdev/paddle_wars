@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6xv1ex3btx2n"]
+
+[ext_resource type="Texture2D" uid="uid://jrv4keqc3gyn" path="res://assets/sprites/ball.webp" id="1_bua77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qchwb"]
+size = Vector2(60, 60)
+
+[node name="Ball" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bua77")
+region_enabled = true
+region_rect = Rect2(929.708, 509.74, 60.7754, 60.7429)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qchwb")
