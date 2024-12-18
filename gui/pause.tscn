@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmpaus061crwj"]
+
+[ext_resource type="FontFile" uid="uid://bcpq4be7nsnxt" path="res://assets/fonts/orbitron/Orbitron-Regular.ttf" id="1_j3axf"]
+[ext_resource type="FontFile" uid="uid://8oe7ijtlkqw2" path="res://assets/fonts/orbitron/Orbitron-Bold.ttf" id="2_th1lq"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 1920.0
+offset_bottom = 700.0
+theme_override_fonts/normal_font = ExtResource("1_j3axf")
+theme_override_fonts/bold_font = ExtResource("2_th1lq")
+theme_override_font_sizes/normal_font_size = 200
+theme_override_font_sizes/bold_font_size = 200
+bbcode_enabled = true
+text = "[center][rainbow][wave amp=50 freq=3]PAUSED[/wave][/rainbow][/center]
+"
