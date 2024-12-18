@@ -1,48 +1,81 @@
-[gd_scene load_steps=8 format=3 uid="uid://di7s0f008tdok"]
+[gd_scene load_steps=9 format=3 uid="uid://di7s0f008tdok"]
 
-[ext_resource type="PackedScene" uid="uid://dq7leh028bktw" path="res://characters/player.tscn" id="1_3jcki"]
 [ext_resource type="Texture2D" uid="uid://0qrmmrgqvci5" path="res://assets/sprites/pongBackground.webp" id="1_6681q"]
-[ext_resource type="PackedScene" uid="uid://6xv1ex3btx2n" path="res://characters/ball.tscn" id="1_fdlcr"]
-[ext_resource type="PackedScene" uid="uid://co6qp2ujpwr8s" path="res://characters/enemy.tscn" id="2_1f178"]
+[ext_resource type="PackedScene" uid="uid://iuih6sjo7whv" path="res://characters/Ball.tscn" id="1_fdlcr"]
+[ext_resource type="PackedScene" uid="uid://deussi6qyeari" path="res://characters/Player.tscn" id="3_iuvkp"]
 [ext_resource type="Texture2D" uid="uid://dl0iyxb74vdhs" path="res://assets/sprites/pongBattlefield.webp" id="4_omk2p"]
+[ext_resource type="PackedScene" uid="uid://4nedd23wx31q" path="res://characters/Enemy.tscn" id="4_ukh4o"]
+[ext_resource type="FontFile" uid="uid://8oe7ijtlkqw2" path="res://assets/fonts/orbitron/Orbitron-Bold.ttf" id="5_c6qnx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vg1h"]
-size = Vector2(1959, 41)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n67e6"]
+size = Vector2(65, 1080)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc4ga"]
-size = Vector2(1945, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hciet"]
+size = Vector2(1850, 60)
 
 [node name="ClassicalGame" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("4_omk2p")
 
 [node name="Ball" parent="." instance=ExtResource("1_fdlcr")]
 position = Vector2(960, 540)
 
-[node name="Enemy" parent="." instance=ExtResource("2_1f178")]
+[node name="Player" parent="." instance=ExtResource("3_iuvkp")]
+position = Vector2(101, 540)
+
+[node name="Enemy" parent="." instance=ExtResource("4_ukh4o")]
 position = Vector2(1818, 540)
 
-[node name="Player" parent="." instance=ExtResource("1_3jcki")]
-z_index = 1
-position = Vector2(101, 540)
-Speed = 800.0
-MinY = 215.0
-MaxY = 865.0
+[node name="LeftGoal" type="Area2D" parent="."]
+position = Vector2(0, 540)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal"]
+shape = SubResource("RectangleShape2D_n67e6")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(960, 540)
-texture = ExtResource("4_omk2p")
+[node name="RightGoal" type="Area2D" parent="."]
+position = Vector2(1920, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(959.5, 10.5)
-shape = SubResource("RectangleShape2D_8vg1h")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal"]
+position = Vector2(0, 540)
+shape = SubResource("RectangleShape2D_n67e6")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(962.5, 1069)
-shape = SubResource("RectangleShape2D_pc4ga")
+[node name="TopArea" type="Area2D" parent="."]
+position = Vector2(960, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopArea"]
+shape = SubResource("RectangleShape2D_hciet")
+
+[node name="BottomArea" type="Area2D" parent="."]
+position = Vector2(960, 1080)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea"]
+shape = SubResource("RectangleShape2D_hciet")
+
+[node name="PlayerScore" type="Label" parent="."]
+offset_left = 840.0
+offset_top = 40.0
+offset_right = 893.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("5_c6qnx")
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="EnemyScore" type="Label" parent="."]
+offset_left = 1030.0
+offset_top = 40.0
+offset_right = 1083.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("5_c6qnx")
+theme_override_font_sizes/font_size = 64
+text = "0"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("1_6681q")

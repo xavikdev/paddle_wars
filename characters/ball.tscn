@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://6xv1ex3btx2n"]
+[gd_scene load_steps=3 format=3 uid="uid://iuih6sjo7whv"]
 
-[ext_resource type="Texture2D" uid="uid://jrv4keqc3gyn" path="res://assets/sprites/ball.webp" id="1_bua77"]
+[ext_resource type="Texture2D" uid="uid://jrv4keqc3gyn" path="res://assets/sprites/ball.webp" id="1_ugcv5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qchwb"]
-size = Vector2(60, 60)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx6ws"]
+size = Vector2(60, 61)
 
 [node name="Ball" type="Area2D"]
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bua77")
+texture = ExtResource("1_ugcv5")
 region_enabled = true
-region_rect = Rect2(929.708, 509.74, 60.7754, 60.7429)
+region_rect = Rect2(929.529, 509.368, 60.9508, 61.1758)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qchwb")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_wx6ws")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

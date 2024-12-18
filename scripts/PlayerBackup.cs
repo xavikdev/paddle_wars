@@ -6,9 +6,9 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public float Speed { get; set; } = 200f;
 	[Export]
-	public float MinY = 100f;
+	public float MinY { get; set; } = 100f;
 	[Export]
-	public float MaxY = 500f;
+	public float MaxY { get; set; } = 500f;
 	private Vector2 _velocity = Vector2.Zero;
 
 
