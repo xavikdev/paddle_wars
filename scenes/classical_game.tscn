@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://di7s0f008tdok"]
 
 [ext_resource type="Texture2D" uid="uid://0qrmmrgqvci5" path="res://assets/sprites/pongBackground.webp" id="1_6681q"]
-[ext_resource type="PackedScene" uid="uid://iuih6sjo7whv" path="res://characters/Ball.tscn" id="1_fdlcr"]
-[ext_resource type="PackedScene" uid="uid://deussi6qyeari" path="res://characters/Player.tscn" id="3_iuvkp"]
+[ext_resource type="PackedScene" uid="uid://iuih6sjo7whv" path="res://characters/ball.tscn" id="1_fdlcr"]
+[ext_resource type="PackedScene" uid="uid://deussi6qyeari" path="res://characters/player.tscn" id="3_iuvkp"]
 [ext_resource type="Texture2D" uid="uid://dl0iyxb74vdhs" path="res://assets/sprites/pongBattlefield.webp" id="4_omk2p"]
-[ext_resource type="PackedScene" uid="uid://4nedd23wx31q" path="res://characters/Enemy.tscn" id="4_ukh4o"]
+[ext_resource type="PackedScene" uid="uid://4nedd23wx31q" path="res://characters/enemy.tscn" id="4_ukh4o"]
 [ext_resource type="FontFile" uid="uid://8oe7ijtlkqw2" path="res://assets/fonts/orbitron/Orbitron-Bold.ttf" id="5_c6qnx"]
 [ext_resource type="Script" path="res://scripts/Rail.cs" id="5_jbfu1"]
 [ext_resource type="Script" path="res://scripts/Wall.cs" id="5_mykh8"]
@@ -31,9 +31,12 @@ scale = Vector2(0.7, 0.7)
 
 [node name="Player" parent="." instance=ExtResource("3_iuvkp")]
 position = Vector2(101, 540)
+moveSpeed = 400
 
-[node name="Enemy" parent="." instance=ExtResource("4_ukh4o")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("follow", "ScoreDisplay") instance=ExtResource("4_ukh4o")]
 position = Vector2(1818, 540)
+follow = NodePath("../Ball")
+ScoreDisplay = NodePath("../EnemyScore")
 
 [node name="LeftGoal" type="Area2D" parent="." node_paths=PackedStringArray("Scorer")]
 position = Vector2(0, 540)
@@ -95,6 +98,8 @@ texture = ExtResource("1_6681q")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_dn7o5")
 
+[connection signal="area_entered" from="Player" to="Player" method="OnAreaEntered"]
+[connection signal="area_entered" from="Enemy" to="Enemy" method="OnAreaEntered"]
 [connection signal="area_entered" from="LeftGoal" to="LeftGoal" method="OnAreaEntered"]
 [connection signal="area_entered" from="RightGoal" to="RightGoal" method="OnAreaEntered"]
 [connection signal="area_entered" from="TopArea" to="TopArea" method="OnAreaEntered"]

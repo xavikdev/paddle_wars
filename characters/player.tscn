@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://deussi6qyeari"]
+[gd_scene load_steps=5 format=3 uid="uid://deussi6qyeari"]
 
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_5orug"]
 [ext_resource type="Texture2D" uid="uid://boch2y5xxu1xq" path="res://assets/sprites/playerPaddle.webp" id="1_bophh"]
 [ext_resource type="AudioStream" uid="uid://b50r0sv5l2cwf" path="res://assets/music/player_score.mp3" id="2_6elnf"]
 
@@ -7,6 +8,7 @@
 size = Vector2(40, 361)
 
 [node name="Player" type="Area2D"]
+script = ExtResource("1_5orug")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

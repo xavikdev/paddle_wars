@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://4nedd23wx31q"]
+[gd_scene load_steps=5 format=3 uid="uid://4nedd23wx31q"]
 
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_jve62"]
 [ext_resource type="Texture2D" uid="uid://cc8ny0s4swe8b" path="res://assets/sprites/enemy.webp" id="1_ppvnt"]
 [ext_resource type="AudioStream" uid="uid://dbewwfbijars7" path="res://assets/music/enemy_score.mp3" id="2_uqv22"]
 
@@ -7,6 +8,7 @@
 size = Vector2(40, 360)
 
 [node name="Enemy" type="Area2D"]
+script = ExtResource("1_jve62")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
